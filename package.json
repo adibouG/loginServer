@@ -7,8 +7,8 @@
     "server": "nodemon index.js",
     "start": "npm run server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "run index.js",
-    "debug": "run serverdebug",
+    "dev": "npm run server",
+    "debug": "npm run serverdebug",
     "serverdebug": "nodemon --inspect index.js"
   },
   "author": "",

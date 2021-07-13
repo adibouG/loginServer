@@ -1,6 +1,7 @@
-//ORM for relationnal db 
-//const Sequelize = require('sequelize'); 
-const {DB} = require('../../app.settings.js').SETTINGS ;
+
+require('dotenv').config() ; 
+
+const {DB} = require('../app.settings.js').SETTINGS ;
 
 const postgres = require('postgres')
 const pg = require('pg')

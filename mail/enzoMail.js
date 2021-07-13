@@ -1,6 +1,8 @@
-const {SETTINGS}  = require('../../app.settings.js') ;
+const {SETTINGS}  = require('../app.settings.js') ;
 const axios = require('axios');
 const Logger = require('../logger/logger.js');
+
+
 
 const {SERVICE , LINKTO }  = SETTINGS.LOGIN.MAIL ;
 const {ACCOUNTRECOVERY ,  ACCOUNTACTIVATION } = SETTINGS.LOGIN.MAIL.PATHS ;
@@ -12,6 +14,15 @@ const attachmentFormat = {
     "name": ""
 
 };
+
+const MAILTYPES = {
+
+    RESET : 'reset' ,
+    ACTIVATE : 'activate' ,
+    CREATE : 'create' , 
+    RESET_CONF :'resetConfirm' ,
+    ACTIVATE_CONF : 'activateConfirm'
+} ;
 
 const mailFormat = (  type ,   mail , token , user = null  ) => {
 
@@ -27,12 +38,21 @@ if (type === 'reset' && user ) {
   
  }   
  
-else if (type === 'create') {
+else if (type === 'create' || type ===  'activate') {
     TITLE = 'Your Kms Account is created and needs to be activated' ;
     MESSAGE = `<p>Click the link below to set your username and pwd and activate the account</p> <p><a href="${LINKTO}${ACCOUNTACTIVATION}?token=${token}">Activate my account</a></p>` ;
   
  }   
+
+ 
+else if (type === 'resetConfirm' || type ===  'activateConfirm') { 
     
+    TITLE = 'Your Kms Account is created and needs to be activated' ;
+    MESSAGE = `<p>Click the link below to set your username and pwd and activate the account</p> <p><a href="${LINKTO}${ACCOUNTACTIVATION}?token=${token}">Activate my account</a></p>` ;
+  
+ }   
+
+
 return ({
     "attachments": [],
     "body": {
@@ -48,18 +68,20 @@ return ({
 }
 
 
-
-
-
-
-module.exports = function sendEmailRequest( type ,   email , token , user = null ) {   
+function sendEmailRequest( type ,   email , token , user = null ) {   
   
   
-  let mail = mailFormat( type ,   email , token , user) ;
- 
-   return axios({ url : SERVICE , method : 'POST' , data : mail })
-     .then(res => {  return res ;} ) 
-     .catch(res => {  return res ;} ) 
+    let mail = mailFormat( type ,   email , token , user) ;
+   
+     return axios({ url : SERVICE , method : 'POST' , data : mail })
+       .then(res => {  return res ;} ) 
+       .catch(res => {  return res ;} ) 
+  }
+
+
+
+module.exports = {
+    
+    MAILTYPES,
+    sendEmailRequest
 }
-
-

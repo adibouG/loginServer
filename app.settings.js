@@ -104,7 +104,7 @@ exports.SETTINGS = {
             CONN_TIMEOUT : 30,  
           } ,
           MAIL : {
-            SERVICE : 'https://dev.cloud.enzosystems.com:6000/messaging/email/sendmessage' ,
+            SERVICE : '' ,
             LINKTO : 'http://127.0.0.1:3000',
             PATHS : {
               ACCOUNTRECOVERY : '/passwordReset',

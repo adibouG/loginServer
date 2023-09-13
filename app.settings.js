@@ -22,7 +22,7 @@ exports.SETTINGS = {
 
           BACK_SERVER_API : {
             ID : 2 ,
-            HOST : 'https://dev.cloud.enzosystems.com',
+            HOST : '',
             USER : '',
             PWD : '',
             API : '/kms/api',
@@ -35,10 +35,10 @@ exports.SETTINGS = {
 
         DB : {
           ID:4 ,
-          HOST : '34.244.245.12',
-          USER : 'thisisenzoauthsystemsinstance',
-          PWD : 'my1password2is8not4shared2by3you2006',
-          DB : 'Authentication',
+          HOST : '',
+          USER : '',
+          PWD : '',
+          DB : '',
           PORT : 5432 ,
           MAXCON : 10,// Max number of connections
           SSL  : false,
@@ -71,16 +71,16 @@ exports.SETTINGS = {
              REDIRECT_URI : null ,
              SECRET : {
                PRIVATE_RSA_KEY : { 
-                 FILENAME: 'C:\\\\Users\\Adrien Gonzalez\\Documents\\NewKmsWebProject\\kms_login\\loginpage_private.pem'
+                 FILENAME: ''
                },
                PUBLIC_RSA_KEY : { 
-                 FILENAME: 'C:\\\\Users\\Adrien Gonzalez\\Documents\\NewKmsWebProject\\kms_login\\oauth_public.pem'
+                 FILENAME: ''
                }
              }
           },
          CLIENT : {
-            CLIENT_ID: `Lism1801OAQ9HHpsp3ONBYvRLOZqUxK6h1eMmXwHnYAr65Cq1RVgvi0jDeC` ,
-            CLIENT_SECRET: `FRN4PJvDbH8cMlMhLAP..fBjr3MdwS64o8pZFnEBBwxL0tABof78j~QM.P46ilTAI.gGpo5ktV6GjfKmx1FH_.5pk.Vttme8yuubriaiz31svoIT6jPsQ~TFOVORVVOUruIkfcuvqFhRi8LtaMAgxqMRundUGueAhOLTOLNWi3c5Opv8IpB6WtLjApLNugAoglkC~trQ`,
+            CLIENT_ID: `` ,
+            CLIENT_SECRET: ``,
             REDIRECT_URI :  'http://127.0.0.1:3000'
           }
         },
@@ -140,4 +140,4 @@ exports.SETTINGS = {
             LEVEL : 1,
           }
         }
-};
+}
